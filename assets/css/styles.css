@@ -1,0 +1,345 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+/*===== Colores =====*/
+:root {
+  --second-color: #e55947;
+  --second-color-alt: #d2321e;
+  --white-color: #fafaff;
+  --dark-color: #101010;
+  --dark-color-light: #606060;
+  --gray-color: #f0f1f3;
+}
+/*===== VARIABLES CSS =====*/
+:root {
+  --header-height: 3rem;
+  --defult-transition: 0.5s ease-in-out;
+  --body-font: "Open Sans", sans-serif;
+  --font-semi: 600;
+  --font-bold: 700;
+  /* FONT SIZE */
+  --normal-size: 1rem;
+  --small-size: 0.813rem;
+  --h2-size: 1.5rem;
+  --h1-size: 2.25rem;
+  --big-size: 6rem;
+  /* MARGIN */
+  --margin-1: 1rem;
+  --margin-2: 2rem;
+  --margin-3: 3rem;
+  /* PADDING */
+  --padding-1: 1rem;
+  --padding-2: 2rem;
+  --padding-3: 3rem;
+}
+
+@media (max-width: 500px) {
+  :root {
+    /* FONT SIZE */
+    --normal-size: 0.938rem;
+    --small-size: 0.75rem;
+    --h2-size: 1.25rem;
+    --h1-size: 1.5rem;
+    --big-size: 3rem;
+  }
+}
+
+/*===== GENERAL SETTINGS ===== */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-size);
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+::selection {
+  background-color: var(--second-color-alt);
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+/* SMALL */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* MEDIUM */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* LARGE */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--dark-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*===== MY CSS GENERAL CLASSES ===== */
+.btn,
+input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.disabled-user-select {
+  user-select: none;
+}
+
+/*===== HEADER NAV =====*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: var(--gray-color);
+  display: flex;
+  align-items: center;
+}
+
+.header-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-brand {
+  text-transform: uppercase;
+  font-weight: var(--font-bold);
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.nav-icon.cart {
+  position: relative;
+}
+
+.nav-icon.cart .cart-count {
+  position: absolute;
+  top: 3px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 14px;
+  background-color: var(--second-color);
+  color: var(--white-color);
+}
+
+.nav-icon:nth-child(2) {
+  margin: 0 var(--margin-1);
+}
+
+.nav-icon.hamburger-toggle {
+  width: 20px;
+}
+
+.nav-icon.hamburger-toggle span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--dark-color);
+  display: block;
+}
+
+.nav-icon.hamburger-toggle span:nth-child(2) {
+  margin: 4px 0;
+}
+
+/* NAV SEARCH INPUT */
+.search-input {
+  position: fixed;
+  /* top: calc(var(--header-height) - 4px); */
+  top: -100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--second-color);
+}
+
+.search-input input {
+  width: 100%;
+  color: var(--white-color);
+  padding: 5px 10px;
+  height: 40px;
+  display: block;
+}
+
+.search-input input::placeholder {
+  color: var(--white-color);
+}
+
+/* NAV SIDEBAR */
+.nav-sideabr {
+  right: -100%;
+  width: 35%;
+}
+
+.nav-link {
+  text-transform: capitalize;
+  color: var(--white-color);
+  transition: var(--defult-transition);
+  display: block;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link:hover {
+  background-color: var(--second-color-alt);
+}
+
+.nav-link i {
+  font-size: var(--h2-size);
+  margin-right: var(--margin-1);
+}
+
+/* NAV SIDEBAR GROUP */
+.nav-sideabr,
+/* NAV CART PRODUCTS ITEM GROUP */
+.cart-products-items {
+  position: fixed;
+  top: var(--header-height);
+  height: 100vh;
+  background: var(--second-color);
+  transition: var(--defult-transition);
+  overflow: scroll;
+  -ms-scrollbar-width: none;
+  scrollbar-width: none;
+  width: 35%;
+}
+
+/* NAV CART PRODUCTS ITEM */
+.cart-products-items {
+  right: -100%;
+  padding: 20px;
+}
+
+.cart-products-items::-webkit-scrollbar {
+  display: none;
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--margin-2);
+  background-color: var(--dark-color);
+  color: var(--white-color);
+}
+
+.cart-product .product-img {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  background-color: var(--gray-color);
+  margin-right: var(--margin-1);
+}
+
+.cart-product .product-title {
+  text-transform: capitalize;
+  font-size: var(--h2-size);
+  margin-bottom: var(--margin-1);
+}
+
+.cart-product .set-product-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--margin-1);
+}
+
+.cart-product .set-product-count .increase,
+.cart-product .set-product-count .decrease {
+  background-color: var(--second-color-alt);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2rem;
+  font-size: calc(var(--normal-size) + 0.2rem);
+  cursor: pointer;
+  transition: var(--defult-transition);
+}
+
+.cart-product .set-product-count .increase:hover,
+.cart-product .set-product-count .decrease:hover {
+  background-color: var(--second-color);
+}
+
+.cart-product .remove-item {
+  color: var(--gray-color);
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: var(--defult-transition);
+}
+
+.cart-product .remove-item:hover {
+  color: var(--second-color);
+}
+
+/*===== HOME =====*/
+/*===== COLLECTION =====*/
+/*===== FEATURED PRODUCTS =====*/
+/*===== OFFER =====*/
+/*===== NEW ARRIVALS =====*/
+/*===== NEWSLETTER =====*/
+/*===== SPONSORS =====*/
+/*===== FOOTER =====*/
+
+/* ===== MEDIA QUERIES =====*/
+@media (max-width: 1200px) {
+  /* NAV SIDEBAR MEDIA QUERY */
+  .nav-sideabr,
+  /* NAV CART PRODUCTS ITEM */
+  .cart-products-items {
+    width: 80%;
+  }
+}
