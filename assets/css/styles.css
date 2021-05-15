@@ -111,101 +111,6 @@ img {
   max-width: 100%;
   height: auto;
 }
-/*===== MY CSS GENERAL CLASSES ===== */
-.btn,
-input {
-  background: none;
-  outline: none;
-  border: none;
-}
-
-.btn-primary {
-  background-color: var(--second-color);
-  text-transform: uppercase;
-  font-weight: var(--font-semi);
-  color: var(--white-color);
-  padding: 15px 30px;
-  cursor: pointer;
-  transition: var(--defult-transition);
-}
-
-.btn-primary:hover {
-  background-color: var(--second-color-alt);
-}
-
-.disabled-user-select {
-  user-select: none;
-}
-
-.section {
-  padding-top: 4rem;
-  padding-bottom: 3rem;
-}
-
-.section-head {
-  text-align: center;
-  margin-bottom: var(--margin-2);
-}
-
-.section-head h2 {
-  text-transform: uppercase;
-}
-
-.section-head a {
-  text-transform: capitalize;
-}
-
-.section-head a:hover {
-  text-decoration: underline;
-}
-
-.product-item {
-  position: relative;
-}
-
-.product-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: var(--defult-transition);
-}
-
-.product-overlay::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 0;
-  background-color: rgba(229, 89, 71, 0.8);
-  transition: var(--defult-transition);
-}
-
-.product-overlay .view-product {
-  background-color: var(--dark-color);
-}
-
-.product-overlay .view-product:hover {
-  background-color: var(--second-color-alt);
-}
-
-.product-item:hover .product-overlay {
-  visibility: visible;
-  opacity: 1;
-}
-
-.product-item:hover .product-overlay::after {
-  height: 100%;
-}
 
 /*===== HEADER NAV =====*/
 header {
@@ -281,23 +186,28 @@ header {
 /* NAV SEARCH INPUT */
 .search-input {
   position: fixed;
-  /* top: calc(var(--header-height) - 4px); */
   top: -100%;
+  transition: var(--defult-transition);
   left: 0;
   width: 100%;
-  background-color: var(--second-color);
+  background-color: var(--gray-color);
+}
+
+.search-input form {
+  display: flex;
+  box-shadow: 0 2px 7px 0 rgba(16, 16, 16, 0.3);
 }
 
 .search-input input {
   width: 100%;
-  color: var(--white-color);
+  color: var(--dark-color);
   padding: 5px 10px;
   height: 40px;
   display: block;
 }
 
 .search-input input::placeholder {
-  color: var(--white-color);
+  color: var(--dark-color);
 }
 
 /* NAV SIDEBAR */
@@ -414,6 +324,8 @@ header .nav-link i {
 .home {
   background-color: var(--gray-color);
   height: 550px;
+  padding-top: 1rem;
+  overflow: hidden;
 }
 
 .home-content {
@@ -688,6 +600,110 @@ footer {
   padding-bottom: 4rem;
   color: var(--dark-color-light);
   border-top: 1px solid var(--dark-color-light);
+}
+
+/*===== MY CSS GENERAL CLASSES ===== */
+.show-slide-right {
+  right: 0;
+}
+
+.show-slide-top {
+  top: calc(var(--header-height) - 4px);
+}
+
+.btn,
+input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--second-color);
+  text-transform: uppercase;
+  font-weight: var(--font-semi);
+  color: var(--white-color);
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: var(--defult-transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--second-color-alt);
+}
+
+.disabled-user-select {
+  user-select: none;
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: var(--margin-2);
+}
+
+.section-head h2 {
+  text-transform: uppercase;
+}
+
+.section-head a {
+  text-transform: capitalize;
+}
+
+.section-head a:hover {
+  text-decoration: underline;
+}
+
+.product-item {
+  position: relative;
+}
+
+.product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--defult-transition);
+}
+
+.product-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 0;
+  background-color: rgba(229, 89, 71, 0.8);
+  transition: var(--defult-transition);
+}
+
+.product-overlay .view-product {
+  background-color: var(--dark-color);
+}
+
+.product-overlay .view-product:hover {
+  background-color: var(--second-color-alt);
+}
+
+.product-item:hover .product-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+.product-item:hover .product-overlay::after {
+  height: 100%;
 }
 
 /* ===== MEDIA QUERIES =====*/
