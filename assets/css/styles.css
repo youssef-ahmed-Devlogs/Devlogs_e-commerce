@@ -602,6 +602,91 @@ footer {
   border-top: 1px solid var(--dark-color-light);
 }
 
+/*===== SINGLE PRODUCT =====*/
+.single-product {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 16, 16, 0.9);
+  z-index: 1000;
+  color: var(--white-color);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: var(--dark-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: var(--second-color-alt);
+}
+
+.single-product-content {
+  padding-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.single-product-img {
+  text-align: center;
+  background-color: var(--gray-color);
+}
+
+.single-product-title {
+  text-transform: uppercase;
+  font-size: var(--h1-size);
+  margin-bottom: var(--margin-1);
+}
+
+.single-product-info span {
+  display: block;
+  text-transform: capitalize;
+}
+
+.single-product-price {
+  background-color: var(--second-color-alt);
+  width: fit-content;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: var(--h2-size);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.single-product-available {
+  color: var(--second-color);
+  font-weight: var(--font-bold);
+}
+
+.single-product-description {
+  line-height: 1.6;
+  text-transform: capitalize;
+  margin-top: var(--margin-1);
+  margin-bottom: var(--margin-1);
+  background-color: rgba(250, 250, 255, 0.5);
+  padding: 1rem 1.2rem;
+  color: var(--dark-color);
+}
+
+.single-product-description span {
+  display: block;
+  font-weight: var(--font-bold);
+  margin-bottom: var(--margin-1);
+}
+
 /*===== MY CSS GENERAL CLASSES ===== */
 .show-slide-right {
   right: 0;
