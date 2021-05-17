@@ -694,7 +694,7 @@ footer {
 
 @media (max-width: 768px) {
   .single-product-content {
-    padding-bottom: 2rem;
+    padding-bottom: var(--margin-3);
     grid-template-columns: 1fr;
   }
 }
