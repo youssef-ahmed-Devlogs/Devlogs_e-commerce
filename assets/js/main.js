@@ -10,6 +10,7 @@ let cartBar = document.querySelector(".cart-products-items");
 let searchBar = document.querySelector(".search-input");
 let navToggleBtn = document.querySelector(".hamburger-toggle");
 let cartToggleBtn = document.querySelector(".nav-icon.cart");
+let closeCartBtn = document.querySelector(".close-cart");
 let searchToggleBtn = document.querySelector(".nav-icon.search");
 let navListButtons = document.querySelectorAll(".nav-list a");
 let featuredProductsDom = document.querySelector(".featured-products-content");
@@ -110,12 +111,6 @@ class DomUi {
     navListButtons.forEach((button) => {
       button.addEventListener("click", this.toggleNav);
     });
-  }
-
-  // back from cart to home
-  hideCartSlide() {
-    let closeCartBtn = document.querySelector(".close-cart");
-    closeCartBtn.addEventListener("click", this.hideCart);
   }
 
   // Display featured products
@@ -359,7 +354,7 @@ class DomUi {
 
       Cart Total : $${parseFloat(total).toFixed(2)}
     
-      <span class="close-cart">back</span>
+      
     `;
   }
 
@@ -519,12 +514,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let products = new Products();
 
   dom.saveAppInfo();
-
   // open nav sidebar on click
   dom.navListClick();
-  dom.hideCartSlide();
   // open cart sidebar on click
   cartToggleBtn.addEventListener("click", dom.toggleCart);
+  closeCartBtn.addEventListener("click", dom.hideCart);
   // open cart sidebar on click
   searchToggleBtn.addEventListener("click", dom.toggleSearch);
   // get all products
