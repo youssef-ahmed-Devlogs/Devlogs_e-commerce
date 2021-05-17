@@ -11,6 +11,7 @@ let searchBar = document.querySelector(".search-input");
 let navToggleBtn = document.querySelector(".hamburger-toggle");
 let cartToggleBtn = document.querySelector(".nav-icon.cart");
 let searchToggleBtn = document.querySelector(".nav-icon.search");
+let navListButtons = document.querySelectorAll(".nav-list a");
 let featuredProductsDom = document.querySelector(".featured-products-content");
 let newArrivalsProductsDom = document.querySelector(".new-arrivals-content");
 let singleProductDom = document.querySelector(".single-product-dom");
@@ -103,6 +104,20 @@ class DomUi {
     cartBar.classList.remove("show-slide-right");
   }
 
+  //
+  navListClick() {
+    navToggleBtn.addEventListener("click", this.toggleNav);
+    navListButtons.forEach((button) => {
+      button.addEventListener("click", this.toggleNav);
+    });
+  }
+
+  // back from cart to home
+  hideCartSlide() {
+    let closeCartBtn = document.querySelector(".close-cart");
+    closeCartBtn.addEventListener("click", this.hideCart);
+  }
+
   // Display featured products
   featuredProducts(products) {
     // get featured products only from all products
@@ -173,6 +188,9 @@ class DomUi {
     viewProductBtn.forEach((button) => {
       button.addEventListener("click", (e) => {
         e.preventDefault();
+
+        //
+        document.body.style.overflow = "hidden";
 
         // hide cart sidebar
         this.hideCart();
@@ -319,6 +337,7 @@ class DomUi {
 
   closeViewProduct() {
     singleProductDom.innerHTML = "";
+    document.body.style.overflow = "initial";
   }
 
   saveAppInfo() {
@@ -336,7 +355,12 @@ class DomUi {
       total += product.price * product.amount;
     });
 
-    cartProductsTotal.textContent = `Cart Total : $${total}`;
+    cartProductsTotal.innerHTML = `
+
+      Cart Total : $${parseFloat(total).toFixed(2)}
+    
+      <span class="close-cart">back</span>
+    `;
   }
 
   removeCartItem(id) {
@@ -497,7 +521,8 @@ document.addEventListener("DOMContentLoaded", () => {
   dom.saveAppInfo();
 
   // open nav sidebar on click
-  navToggleBtn.addEventListener("click", dom.toggleNav);
+  dom.navListClick();
+  dom.hideCartSlide();
   // open cart sidebar on click
   cartToggleBtn.addEventListener("click", dom.toggleCart);
   // open cart sidebar on click
